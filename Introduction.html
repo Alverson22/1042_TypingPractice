@@ -1,0 +1,162 @@
+<!--作者簡介-->
+<html style="height: 100%;">
+<head>
+	<meta charset = "utf-8">
+	<style type = "text/css">
+		h1	{
+			 font-weight: bold;
+			 color: gray;
+			 font-size: 50pt;}
+		a	{
+			 font-weight: bold;
+			 font-size: 36pt;
+			 color:royalblue;
+			 text-decoration:none;}
+		table{font-family: 微軟正黑體;}
+		div{font-family: 微軟正黑體;}
+		span {
+            font-size: 4em;
+            font-weight: bold;
+            font-family: helvetica, arial, sans-serif;
+            color: blue;
+        }
+		#table td{border: 5px outset gray;
+            width: 5em}
+			 
+	</style>
+	<script>
+	var cells;
+        var swapped;
+		var i ,j ,temp,rand;
+		var random = new Array(9);
+	function setup() 
+		{
+            // create a 2d array of all the cells
+            cells = new Array(
+				   [document.getElementById("cell00"),
+                    document.getElementById("cell01"),
+                    document.getElementById("cell02")
+                ], [document.getElementById("cell10"),
+                    document.getElementById("cell11"),
+                    document.getElementById("cell12")
+                ], [document.getElementById("cell20"),
+                    document.getElementById("cell21"),
+                    document.getElementById("cell22")
+                ]);
+            placeNumbers();
+        }
+		function placeNumbers() 
+		{
+			for(i = 0;i < random.length ;i++)
+			random[i] = i;
+			for(i = 0;i<random.length ;i++)
+			{
+			rand = Math.floor(Math.random()*9);
+			temp = random[i];
+			random[i] = random[rand];
+			random[rand] = temp;
+			}
+			for(i=0;i<3;i++)
+				for(j=0;j<3;j++)
+				{
+					if(random[i*3 + j] == 0)
+					{
+						cells[i][j].innerHTML = "";
+					}
+					else
+					{
+					cells[i][j].innerHTML = random[i*3 + j];
+					}
+				}
+		}
+		function doClick(row, col) 
+		{
+            if(row-1 >= 0 && cells[row-1][col].innerHTML == "")
+				{
+					cells[row-1][col].innerHTML = cells[row][col].innerHTML;
+					cells[row][col].innerHTML = "";
+				}
+				
+			else if(col-1 >= 0 && cells[row][col-1].innerHTML == "")
+				{
+					cells[row][col-1].innerHTML = cells[row][col].innerHTML;
+					cells[row][col].innerHTML = "";
+				}
+			else if(row+1 <= 2 && cells[row+1][col].innerHTML == "")
+				{
+					cells[row+1][col].innerHTML = cells[row][col].innerHTML;
+					cells[row][col].innerHTML = "";
+				}
+			else if(col+1 <= 2 && cells[row][col+1].innerHTML == "")
+				{
+					cells[row][col+1].innerHTML = cells[row][col].innerHTML;
+					cells[row][col].innerHTML = "";
+				}
+			else
+				{
+					alert("Illigal Move!");
+					return;
+				}
+				checkWin();
+        }
+		function checkWin() 
+		{
+			for(i = 0;i < 3;i++)
+				for(j = 0;j < 3;j++)
+				{
+					if(i == 2 && j == 2)
+					break;
+					if(cells[i][j].innerHTML != i*3+j+1)
+					return;
+				}
+			window.alert("Congraduation!You Win!!");
+			if(window.prompt("Do you want to play again? (YES = '1', NO = '0')","0") == 1)
+				placeNumbers();
+			else
+				window.alert("Bye~");
+        }
+
+	</script>
+</head>
+<body onload="setup()">
+	<table id = "table" style = "border-collapse: collapse;text-align:center;position:absolute;top:180px;right:40%;"> 
+        <tr>
+            <td onclick="doClick( 0, 0 )"><span id="cell00">0</span></td>
+            <td onclick="doClick( 0, 1 )"><span id="cell01">0</span></td>
+            <td onclick="doClick( 0, 2 )"><span id="cell02">0</span></td>
+        </tr>
+        <tr>
+            <td onclick="doClick( 1, 0 )"><span id="cell10">0</span></td>
+            <td onclick="doClick( 1, 1 )"><span id="cell11">0</span></td>
+            <td onclick="doClick( 1, 2 )"><span id="cell12">0</span></td>
+        </tr>
+        <tr>
+            <td onclick="doClick( 2, 0 )"><span id="cell20">0</span></td>
+            <td onclick="doClick( 2, 1 )"><span id="cell21">0</span></td>
+            <td onclick="doClick( 2, 2 )"><span id="cell22">0</span></td>
+        </tr>
+    </table>
+	<table table width="80%" height="80%" align = "center">
+　	<tr>
+　	<td colspan = "2" align = "center" ><h1>作者介紹</h1></td>
+　	</tr>
+	<tr>
+	<td align = "center"><a href = "https://www.facebook.com/chiakai.hung?fref=ts" target = "new_blank"  style="position:absolute;text-decoration:none;top:100px;left:160px;">洪家楷</a></td><td align = "center">
+	<a href = "https://www.facebook.com/yaden.liu" target = "new_blank"  style="position:absolute;text-decoration:none;top:100px;right:160px;">劉雅典</a></td>
+	</tr>
+
+	<tr>
+	<td colspan = "2" rowspan = "2" align = "center"> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>國立海洋大學<p>1042網頁程式設計期末專題<p>copyright®2016</td>
+	</tr>
+	</table>
+	<img src = "洪家楷.jpg" alt = "洪家楷" style = "position:absolute;top:170px;left:100px;width:20%">
+	<img src = "劉雅典.jpg" alt = "劉雅典" style = "position:absolute;top:170px;right:150px;width:11.6%">
+	<div id = "fb" style = "position:fixed;top:93%;left:75%;"><iframe src = "http://www.facebook.com/widgets/like.php?href=http://ind.ntou.edu.tw/~00357022/index.html" scrolling = "no" frameborder = "0" style = "border:none; width:250px; height:300px"></iframe></div>
+	<strong><div style = "position:fixed;top:72%;left:150px;">學號 : 00357022<br>興趣 : 看電影、運動<br>分工 : PPT、程式撰寫</div>
+	<strong><div style = "position:fixed;top:72%;right:100px;">學號 : 00457209<br>興趣 : 聽音樂、去旅行<br>分工 : 網頁版面配置、網頁美工</div>
+	<a href = "index.html"><img id = "back" src = "back.jpg" style="position:absolute;width:8%;top:90%;"></a>
+	</body>
+</html>
+
+
+<!--<font class="tlt"color="white" data-in-effect="rollIn" >-->

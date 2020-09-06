@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Practice</title>
+		<meta charset = "utf-8">
+		<link rel = "stylesheet" type="text/css" href = "practice.css">
+		<script src="jquery-2.2.4.min.js"></script>
+		<script src = "practice.js"></script>
+	</head>
+	<body onload="setup()">
+		<table id = "graph" style = "table-layout:fixed; overflow:hidden;">
+		<thead>
+			<tr><th colspan = 2>英打練習</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>Question&nbsp;:<div id = "question" class = "red">a</div></td>
+			<td>Time Left&nbsp;:<br><div id = "count" class = "blue">∞</div></td></tr>
+		</tbody>
+		<tfoot>
+			<tr><td colspan = 2><img id ="pic" src = "blank1.jpg" alt = "keybroad"></td></tr>
+		</tfoot>
+		</table>
+		<a href = "index.html"><img id = "back" src = "back.jpg" style="position:absolute;width:8%;top:90%;"></a>
+		<center><div id = "rule"><img id ="start" src = "gamestart1.jpg" alt = "start" style="margin-top:15%"onmouseover="mouseOver()" onmouseout="mouseOut()"><br><br><span>遊戲規則:</span><p class = "blue">
+		1.時間無限<br>2.熟悉每個字在鍵盤上的位子</p></div>
+		<div id = "m_score"><div>
+	</body>
+</html>

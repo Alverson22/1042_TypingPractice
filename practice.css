@@ -1,0 +1,61 @@
+body{
+		font-family:微軟正黑體,Verdana,arial,sans-serif;
+	}
+table{
+		border-collapse: collapse;
+		border: 1px solid black;
+		text-align: center;
+		width: 80%;
+		margin-left: 10%;
+		margin-top: 3%;
+	}
+table td,th{
+		border-style:dashed;
+		border-width:5px;
+		border-color:lightgray;
+	}
+thead{
+		font-size:50px;
+		letter-spacing:10px;
+	}
+tbody{
+		font-size:30px;
+	}
+.red{
+		color:red;
+}
+.blue{
+		color:blue;
+}
+#pic{
+	margin-top:50px;
+	margin-bottom:50px;
+	width:80%;
+	}
+#m_score{
+		position:absolute;
+		top:45%;
+		left:35%;
+		letter-spacing:5px;
+		font-size:50px;
+		font-weight:bold;
+		font-family:fantasy;
+}
+#word{
+		font-size:50px;
+		letter-spacing:20px;
+		font-weight:bold;
+}
+span{
+		color:red;
+}
+
+#start{
+	width:321px;
+	height:157px;
+}
+
+#m_wpm{
+	font-family:fantasy;
+	font-size:30px;
+}

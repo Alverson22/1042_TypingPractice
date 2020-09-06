@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Start Game</title>
+		<meta charset = "utf-8">
+		<link rel = "stylesheet" type="text/css" href = "practice.css">
+		<script src="jquery-2.2.4.min.js"></script>
+		<script src = "startgame.js"></script>
+	</head>
+	<body onload = "setup()">
+		<audio id = "correctsound" preload = "auto">
+		<source src = "correct.mp3" type = "audio/mpeg">
+		</audio>
+		<audio id = "wrongsound" preload = "auto">
+		<source src = "wrong.mp3" type = "audio/mpeg">
+		</audio>
+		<audio id = "sec" preload = "auto">
+		<source src = "sec.mp3" type = "audio/mpeg">
+		</audio>
+		<table id = "graph" style = "table-layout:fixed; overflow:hidden;">
+		<thead>
+			<tr><th colspan = 2>英打練習</th></tr>
+		</thead>
+		<tbody>
+			<tr><td>Score&nbsp;:<div id = "grade" class = "red">0</div></td>
+			<td>Time Left&nbsp;:<br><div id = "count" class = "blue">0</div></td></tr>
+		</tbody>
+		<tfoot>
+			<tr><td colspan = 2 style="height:400px;width:200px;vertical-align:middle;">
+			<div id = "word"></div></td></tr>
+		</tfoot>
+		</table>
+		<a href = "index.html"><img id = "back" src = "back.jpg" style="position:absolute;width:8%;top:90%;"></a>
+		<center><div id = "rule" style = "z-index:0;"><img id ="start" src = "gamestart1.jpg" alt = "start" style="margin-top:15%"onmouseover="mouseOver()" onmouseout="mouseOut()"><br><br><span>遊戲規則:</span><p class = "blue">
+		1.限時1分鐘<br>2.KEY對一個字母為1分<br>同時計算您的WPM(word per minutes)</p></div>
+		<div id = "m_wpm" style = "position:fixed;top:88%;left:80%;z-index:1;"></div>
+		<div id = "fb" style = "position:fixed;top:88%;left:80%;"><iframe src = "http://www.facebook.com/widgets/like.php?href=http://ind.ntou.edu.tw/~00357022/index.html" scrolling = "no" frameborder = "0" style = "border:none; width:250px; height:300px"></iframe></div>
+		<div id = "m_score"><div>
+		
+	</body>
+</html>
